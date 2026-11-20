@@ -7,208 +7,160 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1024px; height: 1024px; }
   body {
-    font-family: "Liberation Sans", Arial, "Helvetica Neue", sans-serif;
-    background: #f7f3ea;
-    color: #14181d;
-    padding: 20px 24px;
-    display: flex;
-    flex-direction: column;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f6f1e3;
+    color: #191919;
+    overflow: hidden;
+  }
+  .sheet {
+    width: 1024px; height: 1024px;
+    padding: 20px 34px 14px 34px;
+    display: flex; flex-direction: column;
   }
 
   /* ---------- masthead ---------- */
-  header { text-align: center; }
-  .kicker {
-    color: #c8102e;
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: 6px;
-    margin-bottom: 4px;
+  .mast { border-bottom: 6px double #191919; padding-bottom: 10px; }
+  .mast .kicker {
+    font-size: 19px; letter-spacing: 5px; font-weight: 700;
+    color: #a41220; text-transform: uppercase;
+    display: flex; justify-content: space-between;
   }
-  .dateline {
-    font-size: 56px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    line-height: 1.04;
-    white-space: nowrap;
+  .mast h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 58px; line-height: 1.02; font-weight: 900;
+    letter-spacing: -1px; margin-top: 8px;
   }
-  .rule-double {
-    border-top: 5px solid #14181d;
-    border-bottom: 1.5px solid #14181d;
-    height: 8.5px;
+  .mast .dateline {
     margin-top: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px; font-weight: 700; color: #a41220;
+    letter-spacing: 1px;
   }
 
-  /* ---------- story grid ---------- */
-  main {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-top: 12px;
-    min-height: 0;
-  }
-  .tile {
-    border-top: 3px solid #14181d;
-    padding: 9px 14px 8px;
-    overflow: hidden;
-  }
+  /* ---------- shared story bits ---------- */
   .tag {
-    color: #c8102e;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 17px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #f6f1e3;
+    padding: 4px 10px 3px 10px; border-radius: 3px;
   }
-  .tile svg { display: block; margin: 0 auto 6px; }
-  .tile h2 {
-    font-size: 33px;
-    font-weight: 800;
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+  .t-court   { background: #5b2a86; }
+  .t-iran    { background: #8a5a00; }
+  .t-summit  { background: #14532d; }
+  .t-gaming  { background: #a41220; }
+  .t-space   { background: #1d4e89; }
+  .t-climate { background: #0f766e; }
+  .story h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 800; line-height: 1.12;
   }
-  .tile p {
-    font-size: 21px;
-    line-height: 1.16;
-    color: #333a42;
-  }
+  .story p { line-height: 1.24; color: #333; }
 
-  /* ---------- footer ---------- */
-  footer {
+  /* ---------- lead story ---------- */
+  .lead {
     margin-top: 12px;
-    background: #14181d;
-    color: #f7f3ea;
-    text-align: center;
-    padding: 13px 18px;
-    font-size: 21px;
-    line-height: 1.3;
+    border-top: 3px solid #191919;
+    border-bottom: 1px solid #b9b09a;
+    padding: 12px 2px 12px 2px;
   }
-  footer .also { font-weight: 800; letter-spacing: 1px; }
-  footer .dot { color: #c8102e; font-weight: 800; }
+  .lead h2 { font-size: 38px; margin-top: 10px; }
+  .lead p { font-size: 21px; margin-top: 8px; max-width: 930px; }
+  .lead .tag { font-size: 19px; }
+
+  /* ---------- trio row ---------- */
+  .trio {
+    display: flex; gap: 22px;
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid #b9b09a;
+  }
+  .trio .story { flex: 1; }
+  .trio .story + .story { border-left: 1px solid #cfc6ab; padding-left: 22px; }
+  .trio h2 { font-size: 26px; margin-top: 7px; }
+  .trio p { font-size: 19px; margin-top: 6px; }
+
+  /* ---------- duo row ---------- */
+  .duo { display: flex; gap: 22px; padding: 12px 0 2px 0; }
+  .duo .story {
+    flex: 1; background: #efe8d2; border: 1px solid #cfc6ab;
+    border-top: 5px solid #191919; padding: 12px 16px 10px 16px;
+  }
+  .duo h2 { font-size: 27px; margin-top: 9px; }
+  .duo p { font-size: 19px; margin-top: 6px; }
+
+  /* ---------- also today strip ---------- */
+  .also {
+    margin-top: auto;
+    background: #191919; color: #f6f1e3;
+    padding: 12px 18px 11px 18px;
+  }
+  .also .also-head {
+    font-size: 19px; font-weight: 800; letter-spacing: 4px;
+    color: #f2b134; text-transform: uppercase; margin-bottom: 9px;
+  }
+  .also ul { list-style: none; display: flex; flex-wrap: wrap; }
+  .also li {
+    width: 50%; font-size: 18px; line-height: 1.24;
+    padding: 3px 14px 3px 0;
+  }
+  .also li b { color: #f2b134; font-weight: 800; }
 </style>
 </head>
 <body>
+<div class="sheet">
 
-<header>
-  <div class="kicker">THE WORLD IN ONE DAY</div>
-  <div class="dateline">FRIDAY 20 NOVEMBER 2026</div>
-  <div class="rule-double"></div>
-</header>
+  <header class="mast">
+    <div class="kicker"><span>Daily News Poster</span><span>One page &middot; Whole planet</span></div>
+    <h1>The World in One Day</h1>
+    <div class="dateline">FRIDAY 20 NOVEMBER 2026</div>
+  </header>
 
-<main>
+  <section class="lead story">
+    <span class="tag t-court">World Court</span>
+    <h2>UN court rules Myanmar committed genocide against the Rohingya</h2>
+    <p>The International Court of Justice found Myanmar&rsquo;s military likely intended to destroy a substantial part of the Rohingya minority in the 2017 crackdown &mdash; the day&rsquo;s biggest international story.</p>
+  </section>
 
-  <!-- 1 · WORLD COURT -->
-  <article class="tile">
-    <div class="tag">WORLD COURT</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <circle cx="120" cy="8" r="5" fill="#c8102e"/>
-      <rect x="58" y="12" width="124" height="6" fill="#14181d"/>
-      <rect x="116" y="12" width="8" height="42" fill="#14181d"/>
-      <g stroke="#14181d" stroke-width="3">
-        <line x1="64" y1="18" x2="46" y2="42"/>
-        <line x1="64" y1="18" x2="82" y2="42"/>
-        <line x1="176" y1="18" x2="158" y2="42"/>
-        <line x1="176" y1="18" x2="194" y2="42"/>
-      </g>
-      <path d="M42 42 A22 11 0 0 0 86 42 Z" fill="#14181d"/>
-      <path d="M154 42 A22 11 0 0 0 198 42 Z" fill="#14181d"/>
-      <rect x="104" y="54" width="32" height="6" fill="#14181d"/>
-      <rect x="92" y="62" width="56" height="6" fill="#c8102e"/>
-    </svg>
-    <h2>UN Court: Genocide in Myanmar</h2>
-    <p>World court rules Myanmar's military meant to destroy the Rohingya minority in 2017</p>
-  </article>
+  <section class="trio">
+    <article class="story">
+      <span class="tag t-iran">US / Iran</span>
+      <h2>Trump pushes Iran war decision to 2027</h2>
+      <p>No rush on a decision, the president says &mdash; he will &ldquo;see what happens&rdquo; after January 1.</p>
+    </article>
+    <article class="story">
+      <span class="tag t-summit">Summit</span>
+      <h2>Trump, Xi &amp; Putin issue peace declaration</h2>
+      <p>Historic three-way meeting at the APEC summit in Shenzhen ends with a joint peace declaration and pledges to keep working on nuclear limits.</p>
+    </article>
+    <article class="story">
+      <span class="tag t-gaming">Gaming</span>
+      <h2>GTA VI launch day finally arrives</h2>
+      <p>After 13 long years, gamers pour into Leonida; sales already past The Odyssey&rsquo;s $1.80 billion global run.</p>
+    </article>
+  </section>
 
-  <!-- 2 · US / IRAN -->
-  <article class="tile">
-    <div class="tag">US &amp; IRAN</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <ellipse cx="120" cy="39" rx="47" ry="30" fill="none" stroke="#14181d" stroke-width="5"/>
-      <text x="120" y="50" text-anchor="middle" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="900" fill="#c8102e">2027</text>
-      <g fill="#14181d">
-        <circle cx="38" cy="16" r="4"/><circle cx="66" cy="8" r="4"/><circle cx="174" cy="8" r="4"/><circle cx="202" cy="16" r="4"/>
-        <circle cx="30" cy="44" r="4"/><circle cx="210" cy="44" r="4"/>
-        <circle cx="52" cy="66" r="4"/><circle cx="188" cy="66" r="4"/>
-      </g>
-    </svg>
-    <h2>Trump Pushes Iran Call to 2027</h2>
-    <p>No rush on a war decision, says Trump — he'll “see what happens” after January 1</p>
-  </article>
+  <section class="duo">
+    <article class="story">
+      <span class="tag t-space">Space</span>
+      <h2>Voyager 1 phones home from one light-day away</h2>
+      <p>NASA confirms its far-flung probe has reached the &ldquo;light-day&rdquo; distance milestone.</p>
+    </article>
+    <article class="story">
+      <span class="tag t-climate">Climate</span>
+      <h2>Cyclone Akvan makes landfall in India</h2>
+      <p>Over 3 lakh evacuated and 423 rescue teams deployed as the storm crosses near Gopalpur, Odisha, with winds gusting to 110 km/h.</p>
+    </article>
+  </section>
 
-  <!-- 3 · SUMMIT -->
-  <article class="tile">
-    <div class="tag">SUMMIT</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <circle cx="66" cy="32" r="24" fill="none" stroke="#14181d" stroke-width="5"/>
-      <circle cx="174" cy="32" r="24" fill="none" stroke="#14181d" stroke-width="5"/>
-      <circle cx="120" cy="32" r="24" fill="none" stroke="#c8102e" stroke-width="5"/>
-      <rect x="30" y="64" width="180" height="6" fill="#14181d"/>
-    </svg>
-    <h2>Three Leaders, One Table</h2>
-    <p>Trump, Xi and Putin declare peace in China; nuclear limits are “hard” but talks go on</p>
-  </article>
+  <footer class="also">
+    <div class="also-head">Also Today</div>
+    <ul>
+      <li><b>Health &mdash;</b> US loses measles elimination status as cases surge</li>
+      <li><b>Ukraine &mdash;</b> Europe ready for talks with Russia on ending the war, leaders say</li>
+      <li><b>Space &mdash;</b> Japan&rsquo;s Hayabusa2 gives up asteroid landing after engine trouble</li>
+      <li><b>Cricket &mdash;</b> Nicholls 113 not out lifts New Zealand to 243/5 vs India at Wellington</li>
+    </ul>
+  </footer>
 
-  <!-- 4 · GAMING -->
-  <article class="tile">
-    <div class="tag">GAMING</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <path d="M62 18 H178 C196 18 208 34 206 50 C204 64 192 70 182 62 L168 50 H72 L58 62 C48 70 36 64 34 50 C32 34 44 18 62 18 Z" fill="#14181d"/>
-      <g fill="#f7f3ea">
-        <rect x="66" y="32" width="26" height="8"/>
-        <rect x="75" y="23" width="8" height="26"/>
-      </g>
-      <circle cx="152" cy="30" r="6" fill="#c8102e"/>
-      <circle cx="170" cy="44" r="6" fill="#f7f3ea"/>
-      <circle cx="140" cy="48" r="4" fill="#f7f3ea"/>
-    </svg>
-    <h2>GTA VI Takes Over the World</h2>
-    <p>Launch day in Leonida — sales already pass The Odyssey's $1.8 billion global run</p>
-  </article>
-
-  <!-- 5 · SPACE -->
-  <article class="tile">
-    <div class="tag">SPACE</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <path d="M28 14 A36 36 0 0 1 28 64 L46 39 Z" fill="#14181d"/>
-      <line x1="46" y1="39" x2="118" y2="39" stroke="#14181d" stroke-width="5"/>
-      <rect x="118" y="30" width="34" height="18" fill="#c8102e"/>
-      <line x1="152" y1="39" x2="196" y2="39" stroke="#14181d" stroke-width="4"/>
-      <circle cx="204" cy="39" r="6" fill="#14181d"/>
-      <g fill="none" stroke="#c8102e" stroke-width="4" stroke-linecap="round">
-        <path d="M66 22 A24 24 0 0 1 84 12"/>
-        <path d="M60 30 A34 34 0 0 1 88 4"/>
-      </g>
-      <g fill="#14181d">
-        <circle cx="196" cy="12" r="3"/><circle cx="222" cy="22" r="3"/><circle cx="214" cy="62" r="3"/><circle cx="188" cy="68" r="3"/>
-      </g>
-    </svg>
-    <h2>Voyager 1, One Light-Day Out</h2>
-    <p>NASA confirms the milestone: a signal takes a full day to reach our farthest craft</p>
-  </article>
-
-  <!-- 6 · CLIMATE -->
-  <article class="tile">
-    <div class="tag">CLIMATE</div>
-    <svg width="191" height="62" viewBox="0 0 240 78">
-      <path d="M120 39 m-30 0 a30 30 0 1 1 30 30 a24 24 0 1 0 -24 -24 a18 18 0 1 1 18 18 a12 12 0 1 0 -12 -12" fill="none" stroke="#14181d" stroke-width="6" stroke-linecap="round"/>
-      <circle cx="120" cy="39" r="6" fill="#c8102e"/>
-      <g stroke="#c8102e" stroke-width="4" stroke-linecap="round">
-        <line x1="34" y1="58" x2="28" y2="70"/>
-        <line x1="52" y1="64" x2="46" y2="76"/>
-        <line x1="188" y1="64" x2="182" y2="76"/>
-        <line x1="206" y1="58" x2="200" y2="70"/>
-      </g>
-    </svg>
-    <h2>Cyclone Akvan Comes Ashore</h2>
-    <p>Landfall near Gopalpur today — 300,000 evacuated and 423 rescue teams deployed</p>
-  </article>
-
-</main>
-
-<footer>
-  <span class="also">ALSO TODAY —</span> US loses measles elimination status as cases surge <span class="dot">•</span> Europe ready for talks with Russia on ending the Ukraine war <span class="dot">•</span> Japan's Hayabusa2 drops its asteroid landing after engine trouble <span class="dot">•</span> Nicholls' unbeaten 113 lifts New Zealand to 243/5 against India
-</footer>
-
+</div>
 </body>
 </html>
